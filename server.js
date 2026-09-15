@@ -85,7 +85,13 @@ app.put("/alunos/:id", (req, res) => {
     if (indice === -1){
         return res.status(404).json({
             mesagem: "Aluno não encontrado"
-            
+
         })
+    }
+
+    if(!nome || ! curso){
+        return res.status(480).json({
+            mesagem: "Nome e curso são obrigatório"
+        });
     }
 });
